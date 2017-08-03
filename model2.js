@@ -84,13 +84,15 @@ function initMap() {
         // Push the marker to our array of markers.
         ajaxLocations[i].marker = marker;
         markers.push(marker);
-        // onclick event to open an infowindow at each marker.
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
-            bounceMarker(this);
-        });
+        marker.addListener('click', handler);
         marker.setMap(map);
     }
+
+    // onclick event to open an infowindow at each marker.
+        function handler() {
+            populateInfoWindow(this, largeInfowindow);
+            bounceMarker(this);
+        }
 
     function displayMarkerList() {
         for (var i = 0; i < markers.length; i++) {
