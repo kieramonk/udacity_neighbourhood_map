@@ -1,0 +1,91 @@
+
+         * {
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         -ms-box-sizing: border-box;
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+         font-family: 'Oswald', sans-serif;
+         }
+         html, body {
+         height: 100%;
+         }
+         .container {
+         width: 100%;
+         height: 100%;
+         display: flex;
+         flex-wrap: wrap;
+         }
+         .sideBar {
+         width: 20%;
+         height: 100%;
+         background-color: blue;
+         }
+         .header {
+         width: 100%;
+         height: 150px;
+         padding: 10px 10px;
+         color: #eee;
+         }
+         .searchSpace {
+         width: 100%;
+         height: 75px;
+         padding: 10px 10px;
+         }
+         .searchResults {
+         width: 100%;
+         height: 450px;
+         padding: 10px 10px;
+         background-color: white;
+         color: black;
+         overflow: scroll;
+         text-align: center;
+         }
+         #searchSpaceType {
+         height: 25px;
+         }
+         #searchSpacePlace {
+         height: 25px;
+         margin-top: 5px;
+         }
+         #searchButton {
+         margin: 0 0 10px 10px;
+         height: 20px;
+         }
+         .formInput{
+          text-align: center;
+          padding-bottom: 5px;
+         }
+         .displayMap {
+         width: 80%;
+         height: 100%;
+         }
+/*mobile styling*/
+@media screen and (max-width: 450px) {
+         .sideBar {
+         width: 100%;
+         height: 299px;
+         }
+         .displayMap {
+          width: 100%;
+         }
+         .searchResults {
+          height: 150px;
+         }
+         .header {
+          height: 150px;
+         }
+}
+/*tablet styling*/
+@media screen and (min-width:451px) and (max-width:770px) {
+          .sideBar {
+          width: 30%;
+         }
+         .displayMap {
+          width: 70%;
+         }
+         .header  {
+          height: 170px;
+         }
+}
