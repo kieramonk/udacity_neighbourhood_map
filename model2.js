@@ -122,15 +122,15 @@ function populateInfoWindow(marker, infowindow) {
         dataType: "json",
         }).done(function(data) {
             var url = data.response.venues[0].url;
-            if (data.response.venues[0].url == undefined) {
+            if (data.response.venues[0].url === undefined) {
                 url = 'Unable to retrive URL info';
             }
             var here = data.response.venues[0].hereNow.count;
-            if (data.response.venues[0].hereNow.count == undefined) {
+            if (data.response.venues[0].hereNow.count === undefined) {
                 here = 'Unsure on number of people';
             }
             var phone = data.response.venues[0].contact.phone;
-            if (data.response.venues[0].contact.phone == undefined) {
+            if (data.response.venues[0].contact.phone === undefined) {
                 phone = 'Google it';
             }
             // Check to make sure the infowindow is not already opened.
