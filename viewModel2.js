@@ -25,17 +25,4 @@ var viewModelTwo = function() {
         });
     }, self);
 };
-        /*just couldn't get it to filter so came up with the above with help from knockout blogs.
-        if(!searchSpace) {
-                    for(var i = 0; i < self.people.length; i++) {
-                        self.people()[i].marker.setVisible(true);
-                    }
-                    return self.people();
-                }
-                else {
-                    return ko.utils.arrayFilter(self.people, function(item) {
-                        var match = item.name.toLowerCase().indexOf(searchSpace)!==-1;
-                        item.marker.setVisible(match);
-                        return match;
-                    })
-        }*/
+
