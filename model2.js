@@ -120,18 +120,35 @@ function populateInfoWindow(marker, infowindow) {
     $.ajax({
         url: fourUrl,
         dataType: "json",
-        success: function(data) {
+        }).done(function(data) {
             var url = data.response.venues[0].url;
+            if (data.response.venues[0].url == undefined) {
+                url = 'Unable to retrive URL info';
+            }
+            var here = data.response.venues[0].hereNow.count;
+            if (data.response.venues[0].hereNow.count == undefined) {
+                here = 'Unsure on number of people';
+            }
+            var phone = data.response.venues[0].contact.phone;
+            if (data.response.venues[0].contact.phone == undefined) {
+                phone = 'Google it';
+            }
             // Check to make sure the infowindow is not already opened.
             if (infowindow.marker != marker) {
                 infowindow.marker = marker;
-                infowindow.setContent('<div>' + marker.title + '</div><div>Foursquare Info:</div><div>' + url + '</div>');
+                infowindow.setContent('<div>' + marker.title + '</div><div>Foursquare Info:</div><div>' + url + '</div><div>People here now: ' + here + '</div><div>Phone: ' + phone + '</div>');
                 infowindow.open(map, marker);
                 // Make sure the marker cleared if the infowindow is closed.
                 infowindow.addListener('closeclick', function() {
                     infowindow.marker = null;
                 });
             }
-        }
-    });
+        }).fail(function() {
+            infowindow.setContent('<div>Unable to get Foursquare info at present</div>');
+        });
+}
+
+function googleError() {
+    alert("Cannot load the map at present.");
+    $('#map').html("Please try again later");
 }
